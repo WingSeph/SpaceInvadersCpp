@@ -98,13 +98,17 @@
     <ClInclude Include="background.h" />
     <ClInclude Include="ball.h" />
     <ClInclude Include="brick.h" />
+    <ClInclude Include="bullet.h" />
     <ClInclude Include="clock.h" />
     <ClInclude Include="entity.h" />
     <ClInclude Include="framecounter.h" />
     <ClInclude Include="game.h" />
+    <ClInclude Include="highscore.h" />
     <ClInclude Include="level.h" />
     <ClInclude Include="paddle.h" />
+    <ClInclude Include="player.h" />
     <ClInclude Include="resource.h" />
+    <ClInclude Include="score.h" />
     <ClInclude Include="sprite.h" />
     <ClInclude Include="utils.h" />
   </ItemGroup>
