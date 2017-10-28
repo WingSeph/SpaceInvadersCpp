@@ -110,6 +110,11 @@
     <ClInclude Include="resource.h" />
     <ClInclude Include="score.h" />
     <ClInclude Include="sprite.h" />
+    <ClInclude Include="sp_bunker.h" />
+    <ClInclude Include="sp_enemy.h" />
+    <ClInclude Include="sp_game.h" />
+    <ClInclude Include="sp_mship.h" />
+    <ClInclude Include="sp_player.h" />
     <ClInclude Include="utils.h" />
   </ItemGroup>
   <ItemGroup>

@@ -104,6 +104,21 @@
     <ClInclude Include="player.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="sp_game.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="sp_player.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="sp_enemy.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="sp_bunker.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="sp_mship.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Breakout.rc">
