@@ -1,17 +1,2 @@
-﻿  sprite.cpp
-  paddle.cpp
-d:\documents\github\spaceinvaderscpp\breakout\paddle.cpp(58): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-  main.cpp
-  level.cpp
-d:\documents\github\spaceinvaderscpp\breakout\level.cpp(98): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-  game.cpp
-  framecounter.cpp
-  entity.cpp
-  clock.cpp
-  brick.cpp
-  ball.cpp
-  background.cpp
-  backbuffer.cpp
-  Generating Code...
-  Breakout.vcxproj -> D:\Documents\GitHub\SpaceInvadersCpp\Debug\Breakout.exe
+﻿  Breakout.vcxproj -> D:\Documents\GitHub\SpaceInvadersCpp\Debug\Breakout.exe
   Breakout.vcxproj -> D:\Documents\GitHub\SpaceInvadersCpp\Debug\Breakout.pdb (Full PDB)
