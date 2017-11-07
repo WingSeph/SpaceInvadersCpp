@@ -49,12 +49,29 @@ CPaddle::Initialise()
 void
 CPaddle::Draw()
 {
-	for (int i = 0; i < m_Bullets.size(); i++)
+	for (int i = 0; i < GetBulletAmounts(); i++)
 	{
-		m_Bullets[i]->Draw();
-		m_Bullets[i]->Process(m_fDeltaTick);
+		if (m_Bullets[i]->GetY() <= 0)
+		{
+			m_Bullets.erase((m_Bullets.begin() + i));
+		}
+		else
+		{
+			m_Bullets[i]->Draw();
+			m_Bullets[i]->Process(m_fDeltaTick);
+		}
+
+
+
+
 	}
     CEntity::Draw();
+}
+
+int
+CPaddle::GetBulletAmounts()
+{
+	return (m_Bullets.size());
 }
 
 void
@@ -64,15 +81,13 @@ CPaddle::Process(float _fDeltaTick)
 	m_fDeltaTick = _fDeltaTick;
 
 	float fHalfPaddleW = static_cast<float>(m_pSprite->GetWidth() / 2.0f);
-	
-	timer--;
 
 	//shoot ball
 	if (GetAsyncKeyState(VK_SPACE) & 0x8000)
 	{
 		
 
-		if (timer <= 0)
+		if (m_Bullets.size() == 0)
 		{
 
 			//create new ball
@@ -86,12 +101,13 @@ CPaddle::Process(float _fDeltaTick)
 			m_pBall->Initialise(GetX(), GetY(), 0.0f, 300.0f);
 
 			//Process
-			m_Bullets.push_back(m_pBall);
+			m_pBall->SetIsEnemy(false);
 
-			timer = 400;
+			m_Bullets.push_back(m_pBall);
 		}
 	}
 
+	
 
 	//movement left or right
 	if (GetAsyncKeyState(VK_RIGHT) & 0x8000)

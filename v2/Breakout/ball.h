@@ -48,6 +48,9 @@ public:
 
     float GetRadius() const;
 
+	bool GetIsEnemy() { return(b_IsEnemy); }
+	void SetIsEnemy(bool _bool) { b_IsEnemy = _bool; }
+
 protected:
 
 private:
@@ -55,6 +58,7 @@ private:
     CBall& operator= (const CBall& _kr);
 
     // Member Variables
+	bool b_IsEnemy;
 public:
 
 protected:

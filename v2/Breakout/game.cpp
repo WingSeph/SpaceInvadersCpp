@@ -19,6 +19,8 @@
 #include "Level.h"
 #include "BackBuffer.h"
 #include "utils.h"
+#include <stdlib.h>  
+#include <time.h>   
 
 // This Include
 #include "Game.h"
@@ -55,6 +57,7 @@ CGame::~CGame()
 bool
 CGame::Initialise(HINSTANCE _hInstance, HWND _hWnd, int _iWidth, int _iHeight)
 {
+	srand(time(NULL));
 	m_hApplicationInstance = _hInstance;
 	m_hMainWindow = _hWnd;
 

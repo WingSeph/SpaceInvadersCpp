@@ -21,6 +21,7 @@
 
 // Local Includes
 #include "entity.h"
+#include <vector>
 
 // Types
 
@@ -43,6 +44,15 @@ public:
     void SetHit(bool _b);
     bool IsHit() const;
 
+	int i_Counter = 200;
+	bool b_GoingRight = false;
+	
+	int i_AttackTimer = 200;
+
+	void EnemyMovement();
+	void EnemyAttack();
+
+
 protected:
 
 private:
@@ -56,6 +66,8 @@ protected:
     bool m_bHit;
 
 private:
+	std::vector<CBall*> m_Bullets;
+	float m_fDeltaTick;
 
 };
 

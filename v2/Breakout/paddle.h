@@ -42,7 +42,9 @@ public:
     virtual void Draw();
     virtual void Process(float _fDeltaTick);
 
-	int timer = 0;
+	int GetBulletAmounts();
+
+	std::vector<CBall*>* GetBullet() { return (&m_Bullets); };
 
 protected:
 
