@@ -18,10 +18,12 @@
 #define __PADDLE_H__
 
 // Library Includes
+#include <vector>
 
 // Local Includes
 #include "entity.h"
 #include "Sprite.h"
+#include "ball.h"
 
 // Types
 
@@ -40,6 +42,7 @@ public:
     virtual void Draw();
     virtual void Process(float _fDeltaTick);
 
+	int timer = 0;
 
 protected:
 
@@ -53,7 +56,9 @@ public:
 protected:
 
 private:
+	std::vector<CBall*> m_Bullets;
 
+	float m_fDeltaTick;
 };
 
 #endif    // __PADDLE_H__

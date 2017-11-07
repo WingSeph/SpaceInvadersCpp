@@ -20,6 +20,7 @@
 
 // This Include
 #include "Paddle.h"
+#include "ball.h"
 
 // Static Variables
 
@@ -48,6 +49,11 @@ CPaddle::Initialise()
 void
 CPaddle::Draw()
 {
+	for (int i = 0; i < m_Bullets.size(); i++)
+	{
+		m_Bullets[i]->Draw();
+		m_Bullets[i]->Process(m_fDeltaTick);
+	}
     CEntity::Draw();
 }
 
@@ -55,13 +61,37 @@ void
 CPaddle::Process(float _fDeltaTick)
 {
     
-	float fHalfPaddleW = m_pSprite->GetWidth() / 2.0;
+	m_fDeltaTick = _fDeltaTick;
+
+	float fHalfPaddleW = static_cast<float>(m_pSprite->GetWidth() / 2.0f);
 	
+	timer--;
+
 	//shoot ball
 	if (GetAsyncKeyState(VK_SPACE) & 0x8000)
 	{
-		m_fX += 400.0f * _fDeltaTick;
+		
+
+		if (timer <= 0)
+		{
+
+			//create new ball
+			CBall* m_pBall = new CBall;
+
+			//set position to middle of paddle
+			m_pBall->SetX(GetX());
+			m_pBall->SetY(GetY());
+
+			//initialise velocity
+			m_pBall->Initialise(GetX(), GetY(), 0.0f, 300.0f);
+
+			//Process
+			m_Bullets.push_back(m_pBall);
+
+			timer = 400;
+		}
 	}
+
 
 	//movement left or right
 	if (GetAsyncKeyState(VK_RIGHT) & 0x8000)

@@ -87,8 +87,8 @@ CLevel::Initialise(int _iWidth, int _iHeight)
 	m_pBackground->SetX((float)m_iWidth / 2);
 	m_pBackground->SetY((float)m_iHeight / 2);
 
-	m_pBall = new CBall();
-    VALIDATE(m_pBall->Initialise(m_iWidth / 2.0f, m_iHeight / 2.0f, fBallVelX, fBallVelY));
+	//m_pBall = new CBall();
+    //VALIDATE(m_pBall->Initialise(m_iWidth / 2.0f, m_iHeight / 2.0f, fBallVelX, fBallVelY));
 
     m_pPaddle = new CPaddle();
     VALIDATE(m_pPaddle->Initialise());
@@ -96,7 +96,7 @@ CLevel::Initialise(int _iWidth, int _iHeight)
     // Set the paddle's position to be centered on the x, 
     // and a little bit up from the bottom of the window.
     m_pPaddle->SetX(_iWidth / 2.0f);
-    m_pPaddle->SetY(_iHeight - ( 1.5 * m_pPaddle->GetHeight()));
+    m_pPaddle->SetY(static_cast<float>(_iHeight - ( 1.5f * m_pPaddle->GetHeight())));
 
     const int kiNumBricks = 35;
     const int kiStartX = 40;
@@ -143,7 +143,7 @@ CLevel::Draw()
     }
 
     m_pPaddle->Draw();
-    m_pBall->Draw();
+	//m_pBall->Draw();
 
     DrawScore();
 	DrawFPS();
@@ -153,15 +153,15 @@ void
 CLevel::Process(float _fDeltaTick)
 {
 	m_pBackground->Process(_fDeltaTick);
-	m_pBall->Process(_fDeltaTick);
+	//m_pBall->Process(_fDeltaTick);
 	m_pPaddle->Process(_fDeltaTick);
-	ProcessBallWallCollision();
+	//ProcessBallWallCollision();
 	//ProcessPaddleWallCollison();
-    ProcessBallPaddleCollision();
-    ProcessBallBrickCollision();
+  //  ProcessBallPaddleCollision();
+    //ProcessBallBrickCollision();
 
     ProcessCheckForWin();
-	ProcessBallBounds();
+//	ProcessBallBounds();
 
     for (unsigned int i = 0; i < m_vecBricks.size(); ++i)
     {
@@ -178,7 +178,7 @@ CLevel::GetPaddle() const
 {
     return (m_pPaddle);
 }
-
+/*
 void 
 CLevel::ProcessBallWallCollision()
 {
@@ -212,8 +212,8 @@ CLevel::ProcessBallWallCollision()
 #endif //CHEAT_BOUNCE_ON_BACK_WALL
 }
 
-
-
+*/
+/*
 
 void
 CLevel::ProcessBallPaddleCollision()
@@ -238,11 +238,13 @@ CLevel::ProcessBallPaddleCollision()
         m_pBall->SetVelocityY(m_pBall->GetVelocityY() * -1); //Reverse ball's Y direction
     }
 }
+*/
 
 void
 CLevel::ProcessBallBrickCollision()
 {
-    for (unsigned int i = 0; i < m_vecBricks.size(); ++i)
+   // if(m_pPaddle->)
+	for (unsigned int i = 0; i < m_vecBricks.size(); ++i)
     {
         if (!m_vecBricks[i]->IsHit())
         {
@@ -286,7 +288,7 @@ CLevel::ProcessCheckForWin()
 
     CGame::GetInstance().GameOverWon();
 }
-
+/*
 void
 CLevel::ProcessBallBounds()
 {
@@ -309,7 +311,7 @@ CLevel::ProcessBallBounds()
         //m_pBall->SetY(static_cast<float>(m_iHeight));
     }
 }
-
+*/
 int 
 CLevel::GetBricksRemaining() const
 {

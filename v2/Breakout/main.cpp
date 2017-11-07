@@ -24,7 +24,7 @@
 #include "paddle.h"
 
 const int kiWidth = 400;
-const int kiHeight = 400;
+const int kiHeight = 600;
 
 
 #define WINDOW_CLASS_NAME L"BSENGGFRAMEWORK"

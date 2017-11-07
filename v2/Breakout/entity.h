@@ -50,7 +50,7 @@ public:
 	float GetWidth() const;
 
 	int i_MoveCounter;
-	int i_ShootBullet;
+
 
 protected:
 
